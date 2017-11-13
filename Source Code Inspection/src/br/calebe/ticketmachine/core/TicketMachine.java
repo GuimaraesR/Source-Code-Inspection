@@ -45,7 +45,7 @@ public class TicketMachine {
     	}
         return notaIterator;
     }
-
+    //Função Imprimir()
     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
           throw new SaldoInsuficienteException("O seu saldo é insuficiente");
