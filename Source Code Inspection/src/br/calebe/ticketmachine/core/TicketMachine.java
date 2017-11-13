@@ -15,7 +15,7 @@ public class TicketMachine {
     protected int[] papelMoeda = {2, 5, 10, 20, 50, 100};
 
     public TicketMachine(int valor) {
-        this.valor = valor;
+        this.valor = valor;  //fffff
         this.saldo = 0;
     }
 
@@ -27,7 +27,7 @@ public class TicketMachine {
             }
         }
         if (!achou) {
-            throw new PapelMoedaInvalidaException();
+            throw new PapelMoedaInvalidaException("o papel moeda é invalido");
         }
         this.saldo += quantia;
     }
@@ -36,17 +36,32 @@ public class TicketMachine {
         return saldo;
     }
 
-    public Iterator<Integer> getTroco() {
-        return null;
+    public Iterator<PapelMoeda> getTroco() {
+    	Iterator<PapelMoeda> notaIterator = new Troco(saldo).getIterator();
+    	
+    	while (notaIterator.hasNext()) {
+    		PapelMoeda nota = (PapelMoeda)notaIterator.next();
+    		System.out.println("valor: "+ nota.getValor() +" | quantidade: " + nota.getQuantidade());
+    	}
+        return notaIterator;
     }
 
     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
-            throw new SaldoInsuficienteException();
+          throw new SaldoInsuficienteException("O seu saldo é insuficiente");
         }
+        
+        subtraiBilheteDoSaldo();
+        getTroco();
         String result = "*****************\n";
-        result += "*** R$ " + saldo + ",00 ****\n";
+        result += "*** R$ " + valor + ",00 ****\n";
         result += "*****************\n";
+        
+        
         return result;
+    }
+    
+    private Integer subtraiBilheteDoSaldo() {
+    	return this.saldo -= this.valor;
     }
 }
