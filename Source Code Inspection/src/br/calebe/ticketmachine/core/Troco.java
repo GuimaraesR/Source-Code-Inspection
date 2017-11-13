@@ -65,7 +65,7 @@ class Troco {
         protected PapelMoeda[] troco;
     	int posicao = 0;
 
-        public TrocoIterator(PapelMoeda[] troco) {
+        public TrocoIterator(PapelMoeda[] troco) { // Correção
             this.troco = troco;
         }
 
