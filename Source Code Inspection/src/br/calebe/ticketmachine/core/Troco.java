@@ -11,7 +11,7 @@ class Troco {
     protected PapelMoeda[] papeisMoeda;
 
     public Troco(int valor) {
-        papeisMoeda = new PapelMoeda[6];
+        papeisMoeda = new PapelMoeda[6]; //Correção tamanho do vetor
         int count = 0;
         
         while (valor >= 100) {
