@@ -14,7 +14,7 @@ public class TicketMachine {
     protected int saldo;
     protected int[] papelMoeda = {2, 5, 10, 20, 50, 100};
 
-    public TicketMachine(int valor) {
+    public TicketMachine(int valor) { 
         this.valor = valor;  //fffff
         this.saldo = 0;
     }
@@ -54,7 +54,7 @@ public class TicketMachine {
         subtraiBilheteDoSaldo();
         getTroco();
         String result = "*****************\n";
-        result += "*** R$ " + valor + ",00 ****\n";
+        result += "*** R$ " + valor + ",00 ****\n"; //Ajuste Valor
         result += "*****************\n";
         
         
