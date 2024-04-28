@@ -10,7 +10,7 @@ import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
 
 /**
  *
- * @author Roger / Edson
+ * @author Roger
  */
 public class App {
    public static void main(String[] args) {
